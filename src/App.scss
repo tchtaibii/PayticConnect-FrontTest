@@ -326,9 +326,7 @@ img {
 
 .btn-exit {
   position: absolute;
-  // top: toRem(360);
-  left: toRem(1103);
-  transform: translateY(toRem(-130));
+  transform: translate(toRem(153),-8.125rem);
   transition: opacity 0.5s ease;
 
   &:hover {
