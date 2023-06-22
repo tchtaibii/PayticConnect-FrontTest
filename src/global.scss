@@ -1,0 +1,17 @@
+@use "sass:math";
+@mixin flex-col()
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+@mixin backblur($w, $h, $color)
+{
+
+}
+@function toRem($value) {
+    // $remValue: ($value / 16) + rem; 
+    $remValue: math.div($value, 16);
+    $return-v : $remValue + rem;
+    @return $return-v;
+}
