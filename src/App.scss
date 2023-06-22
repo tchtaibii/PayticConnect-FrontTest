@@ -69,8 +69,8 @@ body {
       width: toRem(400);
       height: toRem(400);
       align-content: flex-start;
-      box-shadow: 0px 4px 5px 3px rgba(0, 0, 0, 0.25);
-      border-radius: 40px;
+      box-shadow: 0px toRem(4) toRem(5) toRem(3) rgba(0, 0, 0, 0.25);
+      border-radius: toRem(40);
 
       .iconDrop {
         display: flex;
@@ -260,7 +260,7 @@ img {
     justify-content: center;
     font-style: normal;
     font-weight: 500;
-    font-size: torem(20);
+    font-size: toRem(20);
     color: #FFFFFF;
     text-shadow: 0px toRem(4) toRem(4) rgba(0, 0, 0, 0.25);
   }
@@ -351,7 +351,6 @@ $base-screen-font-size: $base-font-size;
 @function calculate-font-size($screen-width) {
   $base-factor: math.div($screen-width, $base-screen-width);
   $calculated-font-size: $base-factor * $base-screen-font-size;
-  // $calculated-font-size: $base-factor * $base-screen-font-size;
   @return $calculated-font-size;
 }
 
@@ -366,6 +365,42 @@ $base-screen-font-size: $base-font-size;
 }
 
 // Generate media queries for various screen widths
-@for $i from 320px through 3500px {
+@for $i from 760px through 7680px {
+  $base-screen-width: 1920px;
   @include font-size($i);
+}
+
+@for $i from 800px through 1200px {
+  // $base-screen-width: 1477px;
+  @include font-size($i);
+}
+@for $i from 760px through 800px {
+  // $base-screen-width: 800px;
+  @include font-size($i);
+}
+@for $i from 320px through 760px {
+  $base-screen-width: 760px;
+  @include font-size($i);
+}
+
+@media screen and (max-width: 948px) {
+  .App .dropBoxes{
+    flex-direction: column;
+    gap: toRem(30);
+  }
+  .App .creationItems{
+    flex-direction: column;
+    align-items: center;
+    // width: 25rem;
+  }
+  .App .creationItems .itemsStock{
+    width: 25rem;
+  }
+  .App .submit{
+    width: initial;
+    margin-top: toRem(40);
+  }
+  .App .table-container {
+    width: 24.25rem;
+  }
 }
